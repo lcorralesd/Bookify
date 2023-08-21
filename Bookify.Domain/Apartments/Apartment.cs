@@ -26,6 +26,6 @@ public sealed class Apartment : Entity
     public Address Address { get; private set; }
     public Money Price { get; private set; }
     public Money CleaningFee { get; private set; }
-    public DateTime LastBookOnUtc { get; private set; }
+    public DateTime LastBookOnUtc { get; internal set; }
     public List<Amenity> Amenities { get; private set; } = new();
 }
