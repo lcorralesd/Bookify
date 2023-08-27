@@ -1,5 +1,6 @@
-﻿using Bookify.Application.Abtractions.Data;
-using Bookify.Application.Abtractions.Messaging;
+﻿using Bookify.Application.Abstractions.Data;
+using Bookify.Application.Abstractions.Messaging;
+using Bookify.Domain.Abstractions;
 using Dapper;
 
 namespace Bookify.Application.Bookings.GetBooking;
@@ -12,7 +13,7 @@ internal sealed class GetBookingQueryHandler : IQueryHandler<GetBookingQuery, Bo
         _sqlConnectionFactory = sqlConnectionFactory;
     }
 
-    public async Task<BookingResponse> Handle(GetBookingQuery request, CancellationToken cancellationToken)
+    public async Task<Result<BookingResponse>> Handle(GetBookingQuery request, CancellationToken cancellationToken)
     {
         using var connection = _sqlConnectionFactory.CreateConnection();
 

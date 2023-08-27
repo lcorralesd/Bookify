@@ -1,4 +1,4 @@
-﻿using Bookify.Application.Abtractions.Data;
+﻿using Bookify.Application.Abstractions.Data;
 using Npgsql;
 using System.Data;
 

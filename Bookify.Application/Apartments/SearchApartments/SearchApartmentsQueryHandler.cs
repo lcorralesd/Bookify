@@ -1,5 +1,6 @@
-﻿using Bookify.Application.Abtractions.Data;
-using Bookify.Application.Abtractions.Messaging;
+﻿using Bookify.Application.Abstractions.Data;
+using Bookify.Application.Abstractions.Messaging;
+using Bookify.Domain.Abstractions;
 using Bookify.Domain.Bookings;
 using Dapper;
 
@@ -22,7 +23,7 @@ internal sealed class SearchApartmentsQueryHandler
         _sqlConnectionFactory = sqlConnectionFactory;
     }
 
-    public async Task<IReadOnlyList<ApartmentResponse>> Handle(SearchApartmentsQuery request, CancellationToken cancellationToken)
+    public async Task<Result<IReadOnlyList<ApartmentResponse>>> Handle(SearchApartmentsQuery request, CancellationToken cancellationToken)
     {
         if (request.StartDate > request.EndDate)
         {

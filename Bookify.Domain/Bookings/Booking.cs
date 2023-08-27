@@ -30,6 +30,8 @@ public class Booking : Entity
         CreateOnUtc = createOnUtc;
     }
 
+    private Booking() { }
+
     public Guid ApartmentId { get; private set; }
     public Guid UserId { get; private set; }
     public DateRange Duration { get; private set; }
@@ -67,7 +69,7 @@ public class Booking : Entity
 
         booking.RaiseDomainEvent(new BookingReservedDomainEvent(booking.Id));
 
-        apartment.LastBookOnUtc = utcNow;
+        apartment.LastBookedOnUtc = utcNow;
 
         return booking;
     }

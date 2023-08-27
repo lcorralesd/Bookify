@@ -1,4 +1,4 @@
-﻿using Bookify.Application.Abtractions.Messaging;
+﻿using Bookify.Application.Abstractions.Messaging;
 
 namespace Bookify.Application.Apartments.SearchApartments;
 public sealed record SearchApartmentsQuery(
